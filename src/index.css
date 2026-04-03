@@ -1,0 +1,5 @@
+@import 'tailwindcss';
+
+.nav-item {
+      @apply hover:text-blue-400 transition cursor-pointer;
+}
