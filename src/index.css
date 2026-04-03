@@ -1,11 +1,5 @@
 @import 'tailwindcss';
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 html {
   scroll-behavior: smooth;
 }
@@ -36,6 +30,9 @@ body {
 }
 
 /* Smooth transitions for all interactive elements */
-button, a, input, textarea {
+button,
+a,
+input,
+textarea {
   transition: all 0.3s ease-in-out;
 }
