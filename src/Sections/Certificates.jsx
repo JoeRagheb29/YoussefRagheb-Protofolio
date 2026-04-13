@@ -59,8 +59,8 @@ function Certificates() {
           {certificates.map((cert, index) => (
             <div key={index} className='border border-slate-700 rounded-lg overflow-hidden hover:border-blue-500 transition group flex flex-col'>
               {/* Certificate Image Placeholder */}
-              <div className='bg-linear-to-br from-slate-800 to-slate-900 h-24 sm:h-32 lg:h-40 flex items-center justify-center text-center p-3 sm:p-4 group-hover:from-slate-700 group-hover:to-slate-800 transition'>
-                <img className='object-fit text-xs font-semibold text-gray-500' src={cert.image} alt={cert.title} />
+              <div className='bg-linear-to-br from-slate-800 to-slate-900 h-24 sm:h-32 lg:h-40 group-hover:from-slate-700 group-hover:to-slate-800 transition'>
+                <img className='object-cover text-xs font-semibold text-gray-500' src={cert.image} alt={cert.title} />
               </div>
               
               <div className='p-4 sm:p-5 lg:p-6 flex flex-col grow'>

@@ -1,4 +1,7 @@
 import React from 'react'
+import productBuilder from '../assets/product-builder.png'
+import EventSystem from '../assets/event-attendance-system.png'
+import mohamedWael from '../assets/mohamed-wael.png'
 
 function Projects() {
   const projects = [
@@ -6,19 +9,19 @@ function Projects() {
       title: "Event Attendance System",
       description: "A smart attendance tracking platform featuring secure role-based authentication, member attendance tracking (Present/Absent per session), individual attendance reports with engagement rates, full CRUD operations for members and sessions, real-time dashboard analytics, and light/dark mode support. Architected with a migration from SQLite to PostgreSQL via Supabase for scalability. Fully built independently.",
       tags: ["React", "Node.js", "Express", "PostgreSQL", "Supabase", "Vercel", "Tailwind CSS"],
-      image: "project-1"
+      image: EventSystem
     },
     {
       title: "Products Builder – Full-Stack (MERN)",
       description: "A solo full-stack product management system with 100% CRUD coverage, responsive UI tested on 10+ screen sizes, and a Node.js/Express back end integrated with MongoDB supporting 1000+ product records via 5+ RESTful APIs.",
       tags: ["React", "TypeScript", "Node.js", "Express", "MongoDB", "Tailwind CSS"],
-      image: "project-2"
+      image: productBuilder
     },
     {
       title: "Mohamed Wael Clinic – Medical Website",
       description: "A front-end medical clinic website enabling patients to access services and book appointments. Features 6 main pages with 18+ content sections, including a homepage with 9+ key sections. Integrated a custom WordPress + PHP form system generating 100+ monthly requests. Fully responsive across mobile, tablet, and laptop.",
       tags: ["WordPress", "PHP", "CSS", "Responsive Design"],
-      image: "project-3"
+      image: mohamedWael
     }
   ]
 
@@ -32,8 +35,8 @@ function Projects() {
           {projects.map((project, index) => (
             <div key={index} className='border border-slate-700 rounded-lg overflow-hidden hover:border-blue-500 transition group flex flex-col'>
               {/* Image Placeholder */}
-              <div className='bg-linear-to-br from-blue-600 to-blue-900 h-32 sm:h-40 lg:h-48 flex items-center justify-center text-center p-3 sm:p-4 group-hover:from-blue-700 group-hover:to-blue-950 transition'>
-                <p className='text-xs sm:text-sm font-semibold'>{project.image}</p>
+              <div className='bg-linear-to-br from-blue-600 to-blue-900 h-32 sm:h-40 lg:h-48 group-hover:from-blue-700 group-hover:to-blue-950 transition'>
+                <img src={project.image} alt={project.title} className='object-cover h-full w-full' />
               </div>
               
               <div className='p-4 sm:p-5 lg:p-6 flex flex-col grow'>
