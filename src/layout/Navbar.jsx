@@ -1,52 +1,82 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import '../index.css'
+import '@fortawesome/fontawesome-free/css/all.css'
 
 function Navbar() {
-  const [isOpen, setIsOpen] = useState(false)
+  const [isOpenMenu , setIsOpenMenu ] = useState(false);
+  const [isHere, setIsHere] = useState(false);
+  const items = ['Home', 'About', 'Education', 'Skills', 'Services', 'Projects', 'Certificates', 'Contact']
+
+
+  const handleItemClick = (item) => {
+    setIsHere(item);
+  }
 
   return (
-    <div className='bg-slate-950 text-white py-4 sm:py-6 px-4 sm:px-8 border-b border-slate-800 sticky top-0 z-50'>
-      <nav className='max-w-7xl mx-auto flex justify-between items-center'>
-        <div className="logo text-xl sm:text-2xl font-bold text-blue-400">YR</div>
-        
-        {/* Mobile menu button */}
-        <button 
-          className='md:hidden text-white focus:outline-none'
-          onClick={() => setIsOpen(!isOpen)}
+    <>
+      <div className="bg-slate-950 text-white py-4 px-6 border-b border-slate-800">
+        <nav className="max-w-7xl mx-auto flex items-center">
+          <div className="logo text-2xl font-bold text-blue-400">YR</div>
+
+          {/* Desktop nav */}
+          <ul className="hidden md:flex flex-1 justify-center gap-8 items-center ml-12">
+            {items.map((item) => (
+              <li
+                key={item}
+                className={`nav-item cursor-pointer transition-colors duration-200 ${
+                  isHere === item ? 'text-blue-400 font-semibold' : 'text-white hover:text-blue-400'
+                }`}
+                onClick={() => handleItemClick(item)}
+              >
+                {item}
+              </li>
+            ))}
+          </ul>
+
+          {/* Hamburger */}
+          <button
+            className="md:hidden text-white ml-auto cursor-pointer"
+            onClick={() => setIsOpenMenu((p) => !p)}
+            aria-label="Toggle menu"
+          >
+            {isOpenMenu ? <i className="fas fa-times text-2xl"></i> : <i className="fas fa-bars text-2xl"></i>}
+          </button>
+        </nav>
+
+        {/* Mobile sliding menu */}
+        <div
+          className={`md:hidden fixed top-0 right-0 h-full w-64 bg-slate-900 shadow-lg transform transition-transform duration-300 z-50 ${
+            isOpenMenu ? 'translate-x-0' : 'translate-x-full'
+          }`}
         >
-          <svg className='w-6 h-6' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
-            <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M4 6h16M4 12h16M4 18h16' />
-          </svg>
-        </button>
+          <div className="py-6 px-6">
+            <div className="flex items-center justify-between mb-6">
+              <div className="logo text-2xl font-bold text-blue-400">YR</div>
+              <button className="text-white cursor-pointer" onClick={() => setIsOpenMenu(false)} aria-label="Close menu">
+                <i className="fas fa-times text-2xl"></i>
+              </button>
+            </div>
 
-        {/* Desktop menu */}
-        <ul className='hidden md:flex justify-center gap-6 lg:gap-8 items-center flex-1 ml-6 lg:ml-12 text-sm lg:text-base'>
-          <li className='hover:text-blue-400 transition cursor-pointer'>Home</li>
-          <li className='hover:text-blue-400 transition cursor-pointer'>About</li>
-          <li className='hover:text-blue-400 transition cursor-pointer'>Education</li>
-          <li className='hover:text-blue-400 transition cursor-pointer'>Skills</li>
-          <li className='hover:text-blue-400 transition cursor-pointer'>Services</li>
-          <li className='hover:text-blue-400 transition cursor-pointer'>Projects</li>
-          <li className='hover:text-blue-400 transition cursor-pointer'>Certificates</li>
-          <li className='hover:text-blue-400 transition cursor-pointer'>Contact</li>
-        </ul>
-      </nav>
-
-      {/* Mobile menu */}
-      {isOpen && (
-        <ul className='md:hidden mt-4 space-y-3 border-t border-slate-800 pt-4'>
-          <li className='hover:text-blue-400 transition cursor-pointer'>Home</li>
-          <li className='hover:text-blue-400 transition cursor-pointer'>About</li>
-          <li className='hover:text-blue-400 transition cursor-pointer'>Education</li>
-          <li className='hover:text-blue-400 transition cursor-pointer'>Skills</li>
-          <li className='hover:text-blue-400 transition cursor-pointer'>Services</li>
-          <li className='hover:text-blue-400 transition cursor-pointer'>Projects</li>
-          <li className='hover:text-blue-400 transition cursor-pointer'>Certificates</li>
-          <li className='hover:text-blue-400 transition cursor-pointer'>Contact</li>
-        </ul>
-      )}
-    </div>
+            <ul className="flex flex-col gap-4">
+              {items.map((item) => (
+                <li key={item}
+                  className={`nav-item cursor-pointer transition-colors duration-200 ${
+                    isHere === item ? 'text-blue-400 font-semibold' : 'text-white hover:text-blue-400'
+                  }`}
+                  onClick={() => {
+                    handleItemClick(item)
+                    setIsOpenMenu(false)
+                  }}>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </>
   )
 }
 
-export default Navbar
+export default Navbar;
+
