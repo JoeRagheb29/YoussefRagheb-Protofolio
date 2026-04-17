@@ -1,11 +1,26 @@
 import React, { useState } from 'react'
+import emailjs from 'emailjs-com'
 
 function Contact() {
   const [formData, setFormData] = useState({
-    name: '',
+    user_name: '',
     email: '',
     message: ''
   })
+
+  const sendMessage = (e) => {
+    e.preventDefault()
+    emailjs.sendForm("service_ragheb", "template_portfolio", e.target, "B5BOuZ3rx0qslZCOB")
+      .then((result) => {
+        console.log('Email sent successfully:', result)
+      })
+      .catch((error) => {
+        console.error('Error sending email:', error)
+      })
+        
+    console.log('Form submitted Successfully:', formData)
+    setFormData({ user_name: '', email: '', message: '' })
+  }
 
   const handleChange = (e) => {
     const { name, value } = e.target
@@ -15,26 +30,18 @@ function Contact() {
     }))
   }
 
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    // Handle form submission here
-    console.log('Form submitted:', formData)
-    // Reset form
-    setFormData({ name: '', email: '', message: '' })
-  }
-
   return (
     <div id='contact' className='bg-slate-950 text-white py-12 sm:py-20 px-4 sm:px-8'>
       <div className='max-w-2xl mx-auto w-full'>
         <h2 className='text-3xl sm:text-4xl lg:text-5xl font-bold text-center mb-2 sm:mb-4'>Get in Touch</h2>
         <p className='text-center text-gray-400 text-sm sm:text-base mb-10 sm:mb-12'>Have a project in mind? Let's talk.</p>
-        
-        <form onSubmit={handleSubmit} className='space-y-4 sm:space-y-6 mb-10 sm:mb-12'>
+
+        <form onSubmit={(e) => sendMessage(e)} className='space-y-4 sm:space-y-6 mb-10 sm:mb-12'>
           <input
             type='text'
-            name='name'
+            name='user_name'
             placeholder='Your Name'
-            value={formData.name}
+            value={formData.user_name}
             onChange={handleChange}
             className='w-full bg-slate-900 border border-slate-700 rounded-lg px-4 sm:px-6 py-2 sm:py-3 text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 transition text-sm sm:text-base'
             required
