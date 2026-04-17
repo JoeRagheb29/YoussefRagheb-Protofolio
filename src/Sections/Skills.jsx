@@ -37,7 +37,7 @@ function Skills() {
   ]
 
   return (
-    <div className='bg-slate-950 text-white py-12 sm:py-20 px-4 sm:px-8'>
+    <div id='skills' className='bg-slate-950 text-white py-12 sm:py-20 px-4 sm:px-8'>
       <div className='max-w-7xl mx-auto'>
         <h2 className='text-3xl sm:text-4xl lg:text-5xl font-bold text-center mb-2 sm:mb-4'>Skills</h2>
         <p className='text-center text-gray-400 text-sm sm:text-base mb-12 sm:mb-16'>Technologies & concepts I work with daily.</p>

@@ -28,7 +28,7 @@ function Navbar() {
                 }`}
                 onClick={() => handleItemClick(item)}
               >
-                {item}
+                <a href={`#${item.toLowerCase()}`}>{item}</a>
               </li>
             ))}
           </ul>

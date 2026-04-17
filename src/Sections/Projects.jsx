@@ -26,7 +26,7 @@ function Projects() {
   ]
 
   return (
-    <div className='bg-slate-950 text-white py-12 sm:py-20 px-4 sm:px-8'>
+    <div id='projects' className='bg-slate-950 text-white py-12 sm:py-20 px-4 sm:px-8'>
       <div className='max-w-7xl mx-auto'>
         <h2 className='text-3xl sm:text-4xl lg:text-5xl font-bold text-center mb-2 sm:mb-4'>Projects</h2>
         <p className='text-center text-gray-400 text-sm sm:text-base mb-12 sm:mb-16'>A selection of things I've built.</p>
