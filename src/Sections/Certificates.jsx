@@ -46,7 +46,7 @@ function Certificates() {
   ]
 
   return (
-    <div className='bg-slate-950 text-white py-12 sm:py-20 px-4 sm:px-8'>
+    <div id='certificates' className='bg-slate-950 text-white py-12 sm:py-20 px-4 sm:px-8'>
       <div className='max-w-7xl mx-auto'>
         <div className='text-center mb-12 sm:mb-16'>
           <h2 className='text-3xl sm:text-4xl lg:text-5xl font-bold mb-2 sm:mb-4'>
@@ -58,18 +58,13 @@ function Certificates() {
         <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8'>
           {certificates.map((cert, index) => (
             <div key={index} className='border border-slate-700 rounded-lg overflow-hidden hover:border-blue-500 transition group flex flex-col'>
-              {/* Certificate Image Placeholder */}
-              <div className='bg-linear-to-br from-slate-800 to-slate-900 h-24 sm:h-32 lg:h-40 group-hover:from-slate-700 group-hover:to-slate-800 transition'>
-                <img className='object-cover text-xs font-semibold text-gray-500' src={cert.image} alt={cert.title} />
-              </div>
-              
-              <div className='p-4 sm:p-5 lg:p-6 flex flex-col grow'>
+              <img className='image object-cover text-xs font-semibold text-gray-500' src={cert.image} alt={cert.title} />              
+              <div className='discription p-4 sm:p-5 lg:p-6 flex flex-col grow'>
                 <h3 className='text-base sm:text-lg font-bold mb-1 sm:mb-2'>{cert.title}</h3>
                 <p className='text-sm text-blue-400 mb-2 sm:mb-3'>{cert.organization}</p>
                 <p className='text-gray-400 text-xs sm:text-sm mb-3 sm:mb-4 grow'>{cert.description}</p>
                 
-                {/* Tags */}
-                <div className='flex flex-wrap gap-2'>
+                <div className='tags flex flex-wrap gap-2'>
                   {cert.tags.map((tag, i) => (
                     <span key={i} className='bg-slate-800 text-gray-300 text-xs px-2 py-1 rounded'>
                       {tag}
