@@ -1,9 +1,9 @@
 import React from 'react'
-import NTIcer from '../assets/WhatsApp Image 2026-04-04 at 1.27.05 AM.jpeg'
-import NASAcer from '../assets/WhatsApp Image 2026-04-04 at 1.11.48 AM(3).jpeg'
-import Innovacer from '../assets/WhatsApp Image 2026-04-04 at 1.11.48 AM(2).jpeg'
-import Sprintcer from '../assets/WhatsApp Image 2026-04-04 at 1.11.48 AM(1).jpeg'
-import AIcer from '../assets/WhatsApp Image 2026-04-04 at 1.11.48 AM.jpeg'
+import NTIcer from '../assets/NTI.jpeg'
+import NASAcer from '../assets/NASA.jpeg'
+import Innovacer from '../assets/innovaEgypt.jpeg'
+import Sprintcer from '../assets/sprints.jpeg'
+import AIcer from '../assets/GenerativeAI.jpeg'
 
 function Certificates() {
   const certificates = [
