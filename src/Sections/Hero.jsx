@@ -52,7 +52,7 @@ function Hero() {
               justify-center lg:justify-start gap-2 transition-all duration-300 
               mx-auto lg:mx-0 shadow-lg hover:shadow-blue-500/50 hover:scale-105 overflow-hidden'>
 
-              <span className='relative z-10'>View My Work</span>
+              <a href='#projects' className='relative z-10'>View My Work</a>
               <span className='relative z-10 animate-bounce'>↓</span>
               <div className='absolute inset-0 bg-linear-to-r from-cyan-600 to-blue-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300'></div>
             </button>
