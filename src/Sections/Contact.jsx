@@ -75,16 +75,15 @@ function Contact() {
           </button>
         </form>
 
-        {/* Social Links */}
         <div className='flex justify-center gap-6 sm:gap-8'>
-          <a href='#' className='text-gray-400 hover:text-blue-500 transition text-xl sm:text-2xl' title='GitHub'>
-            🐙
+          <a href='https://github.com/JoeRagheb29' className='text-gray-400 hover:text-blue-500 transition text-xl sm:text-2xl' title='GitHub'>
+            <i className="fab fa-github"></i>
           </a>
-          <a href='#' className='text-gray-400 hover:text-blue-500 transition text-xl sm:text-2xl' title='LinkedIn'>
-            💼
+          <a href='https://www.linkedin.com/in/youssef-ragheb/' className='text-gray-400 hover:text-blue-500 transition text-xl sm:text-2xl' title='LinkedIn'>
+            <i className="fab fa-linkedin"></i>
           </a>
-          <a href='#' className='text-gray-400 hover:text-blue-500 transition text-xl sm:text-2xl' title='Email'>
-            ✉️
+          <a href='mailto:youssifragheb838@gmail.com' className='text-gray-400 hover:text-blue-500 transition text-xl sm:text-2xl' title='Email'>
+            <i className="fas fa-envelope"></i>
           </a>
         </div>
       </div>
