@@ -3,12 +3,48 @@
     opacity: 0;
     transform: translateY(-20px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
   }
 }
 
+@keyframes orbitPulse {
+
+  0%,
+  100% {
+    box-shadow: 0 0 30px rgba(59, 130, 246, 0.6), inset 0 0 30px rgba(59, 130, 246, 0.1);
+  }
+
+  50% {
+    box-shadow: 0 0 50px rgba(6, 182, 212, 0.8), inset 0 0 30px rgba(6, 182, 212, 0.2);
+  }
+}
+
+@keyframes glow-text {
+
+  0%,
+  100% {
+    text-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+  }
+
+  50% {
+    text-shadow: 0 0 40px rgba(6, 182, 212, 0.6);
+  }
+}
+
+@keyframes float-up {
+  0% {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
 
 .animation-delay-2000 {
   animation-delay: 2s;
@@ -21,4 +57,17 @@
 .animate-fadeInDown {
   animation: fadeInDown 0.8s ease-out forwards;
   opacity: 0;
+}
+
+.animate-float-up {
+  animation: float-up 1s ease-out forwards;
+}
+
+.glow-text {
+  animation: glow-text 2s ease-in-out infinite;
+}
+
+/* Enhanced hover effects for images */
+.image:hover {
+  animation: orbitPulse 2s ease-in-out;
 }

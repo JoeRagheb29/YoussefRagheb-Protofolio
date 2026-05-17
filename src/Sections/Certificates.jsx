@@ -1,4 +1,5 @@
 import React from 'react'
+import { useTheme } from '../context/useTheme'
 import NTIcer from '../assets/NTI.jpeg'
 import NASAcer from '../assets/NASA.jpeg'
 import Innovacer from '../assets/innovaEgypt.jpeg'
@@ -6,6 +7,7 @@ import Sprintcer from '../assets/sprints.jpeg'
 import AIcer from '../assets/GenerativeAI.jpeg'
 
 function Certificates() {
+  const { isDark } = useTheme()
   const certificates = [
     {
       title: "NASA Space Apps Cairo Hackathon 2024",
@@ -46,27 +48,27 @@ function Certificates() {
   ]
 
   return (
-    <div id='certificates' className='bg-slate-950 text-white py-12 sm:py-20 px-4 sm:px-8'>
+    <div id='certificates' className={`${isDark ? 'bg-slate-950 text-white' : 'bg-white text-slate-900'} py-12 sm:py-20 px-4 sm:px-8 transition-colors duration-300`}>
       <div className='max-w-7xl mx-auto'>
         <div className='text-center mb-12 sm:mb-16'>
-          <h2 className='text-3xl sm:text-4xl lg:text-5xl font-bold mb-2 sm:mb-4'>
+          <h2 className={`text-3xl sm:text-4xl lg:text-5xl font-bold mb-2 sm:mb-4 ${isDark ? 'text-white' : 'text-slate-900'}`}>
             <span>🏆</span> Certificates
           </h2>
-          <p className='text-gray-400 text-sm sm:text-base'>Courses, hackathons, and programs I've completed.</p>
+          <p className={`text-sm sm:text-base ${isDark ? 'text-gray-400' : 'text-slate-600'}`}>Courses, hackathons, and programs I've completed.</p>
         </div>
         
-        <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8'>
+        <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 animate-fadeInDown' style={{animationDelay: '0.2s'}}>
           {certificates.map((cert, index) => (
-            <div key={index} className='border border-slate-700 rounded-lg overflow-hidden hover:border-blue-500 transition group flex flex-col'>
+            <div key={index} className={`border rounded-lg overflow-hidden transition group flex flex-col animate-fadeInDown ${isDark ? 'border-slate-700 hover:border-blue-500' : 'border-slate-200 hover:border-blue-600'}`}>
               <img className='image object-cover text-xs font-semibold text-gray-500' src={cert.image} alt={cert.title} />              
-              <div className='discription p-4 sm:p-5 lg:p-6 flex flex-col grow'>
-                <h3 className='text-base sm:text-lg font-bold mb-1 sm:mb-2'>{cert.title}</h3>
-                <p className='text-sm text-blue-400 mb-2 sm:mb-3'>{cert.organization}</p>
-                <p className='text-gray-400 text-xs sm:text-sm mb-3 sm:mb-4 grow'>{cert.description}</p>
+              <div className={`discription p-4 sm:p-5 lg:p-6 flex flex-col grow ${isDark ? 'bg-slate-900' : 'bg-slate-50'}`}>
+                <h3 className={`text-base sm:text-lg font-bold mb-1 sm:mb-2 ${isDark ? 'text-white' : 'text-slate-900'}`}>{cert.title}</h3>
+                <p className={`text-sm mb-2 sm:mb-3 ${isDark ? 'text-blue-400' : 'text-blue-600'}`}>{cert.organization}</p>
+                <p className={`text-xs sm:text-sm mb-3 sm:mb-4 grow ${isDark ? 'text-gray-400' : 'text-slate-600'}`}>{cert.description}</p>
                 
                 <div className='tags flex flex-wrap gap-2'>
                   {cert.tags.map((tag, i) => (
-                    <span key={i} className='bg-slate-800 text-gray-300 text-xs px-2 py-1 rounded'>
+                    <span key={i} className={`text-xs px-2 py-1 rounded ${isDark ? 'bg-slate-800 text-gray-300' : 'bg-slate-200 text-slate-700'}`}>
                       {tag}
                     </span>
                   ))}

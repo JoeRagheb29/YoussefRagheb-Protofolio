@@ -26,7 +26,29 @@ body {
 }
 
 .nav-item {
-  @apply hover:text-blue-400 transition cursor-pointer;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.nav-item:hover {
+  color: #60a5fa;
+}
+
+.nav-item::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, #3b82f6, #06b6d4);
+  transition: left 0.4s ease;
+}
+
+.nav-item:hover::after {
+  left: 0;
 }
 
 /* Smooth transitions for all interactive elements */
@@ -35,4 +57,386 @@ a,
 input,
 textarea {
   transition: all 0.3s ease-in-out;
+}
+
+/* ==================== ANIMATIONS ==================== */
+
+/* Fade in down animation */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeInDown {
+  animation: fadeInDown 0.8s ease-out forwards;
+}
+
+/* Glow pulse animation */
+@keyframes glowPulse {
+
+  0%,
+  100% {
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+  }
+
+  50% {
+    box-shadow: 0 0 40px rgba(6, 182, 212, 0.8);
+  }
+}
+
+.animate-glow-pulse {
+  animation: glowPulse 2s ease-in-out infinite;
+}
+
+/* Float animation */
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Shimmer animation */
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+.animate-shimmer {
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0) 100%);
+  background-size: 1000px 100%;
+  animation: shimmer 2s infinite;
+}
+
+/* Slide in animations */
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-slideInLeft {
+  animation: slideInLeft 0.8s ease-out forwards;
+}
+
+.animate-slideInRight {
+  animation: slideInRight 0.8s ease-out forwards;
+}
+
+/* Scale up animation */
+@keyframes scaleUp {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-scaleUp {
+  animation: scaleUp 0.6s ease-out forwards;
+}
+
+/* Bounce in animation
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+} */
+
+.animate-bounceIn {
+  animation: bounceIn 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+}
+
+/* Rotate animation */
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-rotate {
+  animation: rotate 20s linear infinite;
+}
+
+/* Text gradient animation */
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-gradient-shift {
+  background-size: 200% 200%;
+  animation: gradientShift 3s ease infinite;
+}
+
+/* Pulse glow for cards */
+@keyframes cardGlow {
+
+  0%,
+  100% {
+    border-color: rgba(59, 130, 246, 0.3);
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.1);
+  }
+
+  50% {
+    border-color: rgba(6, 182, 212, 0.6);
+    box-shadow: 0 0 30px rgba(6, 182, 212, 0.2);
+  }
+}
+
+.animate-card-glow {
+  animation: cardGlow 3s ease-in-out infinite;
+}
+
+/* Staggered delay utilities */
+.delay-100 {
+  animation-delay: 0.1s !important;
+}
+
+.delay-200 {
+  animation-delay: 0.2s !important;
+}
+
+.delay-300 {
+  animation-delay: 0.3s !important;
+}
+
+.delay-400 {
+  animation-delay: 0.4s !important;
+}
+
+.delay-500 {
+  animation-delay: 0.5s !important;
+}
+
+/* Hover lift effect */
+.hover-lift {
+  transition: all 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* Smooth reveal on scroll */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.scroll-reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* ==================== LIGHT MODE THEME ==================== */
+
+:root {
+  --dark-bg: #0f172a;
+  --dark-surface: #1e293b;
+  --dark-surface-hover: #334155;
+  --dark-border: #334155;
+  --dark-text: #ffffff;
+  --dark-text-muted: #cbd5e1;
+  --dark-primary: #3b82f6;
+  --dark-primary-light: #60a5fa;
+
+  --light-bg: #ffffff;
+  --light-surface: #f8fafc;
+  --light-surface-hover: #f1f5f9;
+  --light-border: #e2e8f0;
+  --light-text: #0f172a;
+  --light-text-muted: #64748b;
+  --light-primary: #2563eb;
+  --light-primary-light: #3b82f6;
+}
+
+html:not(.dark) {
+  color-scheme: light;
+}
+
+html.dark {
+  color-scheme: dark;
+}
+
+/* Light mode backgrounds */
+:not(.dark) {
+  --bg-primary: var(--light-bg);
+  --bg-secondary: var(--light-surface);
+  --bg-hover: var(--light-surface-hover);
+  --border-color: var(--light-border);
+  --text-primary: var(--light-text);
+  --text-secondary: var(--light-text-muted);
+  --color-primary: var(--light-primary);
+  --color-primary-light: var(--light-primary-light);
+}
+
+.dark {
+  --bg-primary: var(--dark-bg);
+  --bg-secondary: var(--dark-surface);
+  --bg-hover: var(--dark-surface-hover);
+  --border-color: var(--dark-border);
+  --text-primary: var(--dark-text);
+  --text-secondary: var(--dark-text-muted);
+  --color-primary: var(--dark-primary);
+  --color-primary-light: var(--dark-primary-light);
+}
+
+/* Light mode specific styles */
+html:not(.dark) body {
+  background-color: var(--light-bg);
+  color: var(--light-text);
+}
+
+html:not(.dark) .bg-slate-950 {
+  background-color: var(--light-surface) !important;
+}
+
+html:not(.dark) .bg-slate-900 {
+  background-color: var(--light-surface-hover) !important;
+}
+
+html:not(.dark) .text-white {
+  color: var(--light-text) !important;
+}
+
+html:not(.dark) .text-gray-400 {
+  color: var(--light-text-muted) !important;
+}
+
+html:not(.dark) .text-gray-300 {
+  color: var(--light-text) !important;
+}
+
+html:not(.dark) .border-slate-700 {
+  border-color: var(--light-border) !important;
+}
+
+html:not(.dark) .border-slate-800 {
+  border-color: var(--light-border) !important;
+}
+
+html:not(.dark) .bg-slate-800 {
+  background-color: var(--light-surface-hover) !important;
+}
+
+html:not(.dark) .hover:border-blue-500:hover {
+  border-color: var(--light-primary-light) !important;
+}
+
+html:not(.dark) .focus:border-blue-500:focus {
+  border-color: var(--light-primary-light) !important;
+}
+
+html:not(.dark) .bg-linear-to-br {
+  background: linear-gradient(135deg, #dbeafe, #e0f2fe) !important;
+}
+
+html:not(.dark) .group:hover .group-hover\:from-blue-700 {
+  --tw-gradient-from: #1d4ed8 !important;
+}
+
+html:not(.dark) .placeholder-gray-500::placeholder {
+  color: var(--light-text-muted) !important;
+}
+
+/* Light mode form inputs */
+html:not(.dark) .bg-slate-900 {
+  background-color: var(--light-surface) !important;
+  border-color: var(--light-border) !important;
+}
+
+html:not(.dark) input,
+html:not(.dark) textarea {
+  background-color: var(--light-surface) !important;
+  color: var(--light-text) !important;
+  border-color: var(--light-border) !important;
+}
+
+html:not(.dark) input:focus,
+html:not(.dark) textarea:focus {
+  border-color: var(--light-primary-light) !important;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1) !important;
+}
+
+/* Light mode skill bars */
+html:not(.dark) .bg-blue-600 {
+  background: linear-gradient(90deg, #3b82f6, #2563eb) !important;
+}
+
+html:not(.dark) .bg-linear-to-r {
+  background: linear-gradient(90deg, #3b82f6, #2563eb) !important;
+}
+
+/* Smooth transition for theme change */
+body {
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
